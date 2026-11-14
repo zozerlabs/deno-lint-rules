@@ -35,6 +35,9 @@
     "lineWidth": 100
   },
   "lint": {
+    "plugins": [
+      "jsr:@theozer/deno-lint-rules@0.2.1"
+    ],
     "rules": {
       "tags": [
         "recommended",

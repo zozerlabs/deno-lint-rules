@@ -1,11 +1,15 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@std/yaml@1": "1.1.0"
+    "jsr:@std/yaml@1": "1.1.0",
+    "jsr:@theozer/deno-lint-rules@0.2.1": "0.2.1"
   },
   "jsr": {
     "@std/yaml@1.1.0": {
       "integrity": "fc1c5c63e05c4c5eb6118355f557958035d41940d6c29d35b306ef7155d6edb0"
+    },
+    "@theozer/deno-lint-rules@0.2.1": {
+      "integrity": "ffeabd44c3fcba8f41daf748114b6b7f1028545a0f7a7b9624479b0f8763cf7e"
     }
   }
 }
