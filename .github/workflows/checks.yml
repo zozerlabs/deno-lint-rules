@@ -1,0 +1,41 @@
+name: checks
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  DENO_VERSION: 2.9.5
+
+jobs:
+  checks:
+    name: checks
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    steps:
+      - name: check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+
+      - name: set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: ${{ env.DENO_VERSION }}
+
+      - name: format
+        run: deno task fmt
+
+      - name: lint
+        if: ${{ !cancelled() }}
+        run: deno task lint
+
+      - name: type check
+        if: ${{ !cancelled() }}
+        run: deno task check
+
+      - name: test
+        if: ${{ !cancelled() }}
+        run: deno task test
