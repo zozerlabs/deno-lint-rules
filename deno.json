@@ -35,6 +35,12 @@
     "lineWidth": 100
   },
   "lint": {
+    "plugins": [
+      "./mod.ts"
+    ],
+    "exclude": [
+      "testdata/fixtures/"
+    ],
     "rules": {
       "tags": [
         "recommended",
