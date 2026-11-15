@@ -1,0 +1,27 @@
+name: checks
+
+# Rendered by repo-hygiene. Do not edit by hand.
+#
+# This calls the fleet's reusable workflow by MOVING TAG, not by commit SHA.
+# That is deliberate: a fleet release is `git tag -f v1 && git push -f origin v1`
+# in repo-hygiene, and this file never changes. Pinning the SHA here is what
+# previously made every release a 70-repository re-render.
+#
+# `secrets: inherit` hands the caller's secrets to the reusable workflow, so
+# this file does not enumerate them. `vars` resolve against this repository, so
+# CHECKS_RUNNER and CHECKS_TIMEOUT_MINUTES overrides still work. CHECKS_TIMEOUT_MINUTES tunes
+# the suite input; the reusable checks job keeps its literal 30-minute hard cap so the
+# workflow-contract gate can verify the cap without evaluating vars.
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  checks:
+    name: checks
+    uses: zozerlabs/repo-hygiene/.github/workflows/fleet-checks.yml@v1
+    secrets: inherit

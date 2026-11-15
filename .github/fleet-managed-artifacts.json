@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "release": "v1",
+  "artifacts": [
+    {
+      "path": ".github/workflows/checks.yml",
+      "sha256": "effc4c2fe73e4c78d539d116ffe2582207c314bb45ba38e4672b705b40031f4c"
+    }
+  ]
+}
